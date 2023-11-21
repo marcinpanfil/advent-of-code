@@ -2,9 +2,9 @@ package maps
 
 import "math"
 
-func FindMaxInIntValues(registers map[string]int) int {
+func FindMaxInIntValues(data map[string]int) int {
 	max := math.MinInt64
-	for _, v := range registers {
+	for _, v := range data {
 		if v > max {
 			max = v
 		}
