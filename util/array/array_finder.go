@@ -25,3 +25,13 @@ func IndexOf[T comparable](input []T, element T) int {
 	}
 	return -1
 }
+
+func IndexesOf[T comparable](input []T, element T) []int {
+	result := []int{}
+	for idx, el := range input {
+		if el == element {
+			result = append(result, idx)
+		}
+	}
+	return result
+}
