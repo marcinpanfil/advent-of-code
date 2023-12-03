@@ -6,8 +6,8 @@ import (
 )
 
 func TestSolution(t *testing.T) {
-	fmt.Println(CalculateValueOfGen(873, 583))
-	fmt.Println(CalculateValueOfPickyGen(873, 583))
+	fmt.Println(CalculateValueOfGen(873, 583))      // 631
+	fmt.Println(CalculateValueOfPickyGen(873, 583)) // 279
 }
 
 func TestCalculateValueOfGen(t *testing.T) {
