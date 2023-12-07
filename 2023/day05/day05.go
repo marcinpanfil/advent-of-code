@@ -62,25 +62,29 @@ func FindMinLocationForRanges(input []string) int {
 	min := math.MaxInt64
 	for _, seedRange := range seedRanges {
 		waitGr.Add(1)
-		rangeMin := math.MaxInt64
-		for seed := seedRange.start; seed < seedRange.start+seedRange._range; seed++ {
-			soil := GetFromMap(seedToSoil, seed)
-			fertilizer := GetFromMap(soilToFertilizer, soil)
-			water := GetFromMap(fertilizerToWater, fertilizer)
-			light := GetFromMap(waterToLight, water)
-			temp := GetFromMap(lightToTemp, light)
-			humidity := GetFromMap(tempToHumidity, temp)
-			loc := GetFromMap(humidityToLoc, humidity)
-			if loc < rangeMin {
-				rangeMin = loc
+		start := seedRange.start
+		stop := seedRange.start + seedRange._range
+		go func() {
+			rangeMin := math.MaxInt64
+			for seed := start; seed < stop; seed++ {
+				soil := GetFromMap(seedToSoil, seed)
+				fertilizer := GetFromMap(soilToFertilizer, soil)
+				water := GetFromMap(fertilizerToWater, fertilizer)
+				light := GetFromMap(waterToLight, water)
+				temp := GetFromMap(lightToTemp, light)
+				humidity := GetFromMap(tempToHumidity, temp)
+				loc := GetFromMap(humidityToLoc, humidity)
+				if loc < rangeMin {
+					rangeMin = loc
+				}
 			}
-		}
-		mutex.Lock()
-		if rangeMin < min {
-			min = rangeMin
-		}
-		mutex.Unlock()
-		waitGr.Done()
+			mutex.Lock()
+			if rangeMin < min {
+				min = rangeMin
+			}
+			mutex.Unlock()
+			waitGr.Done()
+		}()
 	}
 	waitGr.Wait()
 
