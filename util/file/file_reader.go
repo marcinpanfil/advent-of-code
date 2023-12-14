@@ -5,10 +5,13 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
+var DEF_FILE_NAME = "input.txt"
+
 func ReadInput() []string {
-	file, err := os.Open("input.txt")
+	file, err := os.Open(DEF_FILE_NAME)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -29,7 +32,7 @@ func ReadInput() []string {
 }
 
 func ReadInputAsIntArray() []int {
-	file, err := os.Open("input.txt")
+	file, err := os.Open(DEF_FILE_NAME)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -52,4 +55,12 @@ func ReadInputAsIntArray() []int {
 	}
 
 	return values
+}
+
+func ReadInputAsSingle() string {
+	file, err := os.ReadFile(DEF_FILE_NAME)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return strings.ReplaceAll(string(file), "\r", "")
 }
