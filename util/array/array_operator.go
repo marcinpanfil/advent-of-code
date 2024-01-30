@@ -1,11 +1,13 @@
 package array
 
-import "slices"
+import (
+	"slices"
+)
 
-func AppendIfNotPresent(data []int, inputs ...int) []int {
+func AppendIfNotPresent[T comparable](data []T, inputs ...T) []T {
 	for _, input := range inputs {
 		if !slices.Contains(data, input) {
-			return append(data, input)
+			data = append(data, input)
 		}
 	}
 	return data
