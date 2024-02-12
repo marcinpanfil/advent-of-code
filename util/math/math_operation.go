@@ -25,3 +25,25 @@ func LCM(integers ...int) int {
 
 	return result
 }
+
+func GaussianElimination(matrix [][]float64) [][]float64 {
+	rows := len(matrix)
+	cols := len(matrix[0])
+
+	for i := 0; i < rows; i++ {
+		pivot := matrix[i][i]
+		for j := i; j < cols; j++ {
+			matrix[i][j] /= pivot
+		}
+
+		for k := 0; k < rows; k++ {
+			if k != i {
+				scale := matrix[k][i]
+				for j := i; j < cols; j++ {
+					matrix[k][j] -= scale * matrix[i][j]
+				}
+			}
+		}
+	}
+	return matrix
+}
