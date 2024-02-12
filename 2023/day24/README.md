@@ -1,9 +1,9 @@
 Part 1
 
-Using y – y1 = m(x – x1) to find the intersection point.
+Using $y – y1 = m(x – x1)$ to find the intersection point.
 
  $y – y_1 = m_1*(x – x_1)$ -> point nr 1
-\- $y – y_2 = m_2*(x – x_2)$ -> point nr 2
+`\-` $y – y_2 = m_2*(x – x_2)$ -> point nr 2
 ------------------------
   $y_2 - y_1 = m_1*x - m_1* x_1 - m_2*x + m_2 * x_2$
 after some modification:
