@@ -16,8 +16,8 @@ $\y = m_1*(x – x_1) + y_1$
 
 Part 2
 Assuming that if a thrown rock at time "t" hits another rock then:
-$\x_r + t * v_xr = x_1 + t * v_x1$
-so $\t = (x_r - x_1) / (v_x1 - v_xr)$
+$x_r + t * v_xr = x_1 + t * v_x1$
+so $t = (x_r - x_1) / (v_x1 - v_xr)$
 and comparing x with y there is equazotion:
 $\(x_r - x_1) / (v_x1 - v_xr) = (y_r - y_1) / (v_y1 - v_yr)$
 so $\(v_y2-v_y1) * x_r + (v_x1-v_x2) * y_r + (y_1-y_2) * v_xr + (x_1-x_2) * v_yr = x_2* v_y2 - y_2 * v_x2 - x_2 * v_y1 + y_1 * v_x1$
